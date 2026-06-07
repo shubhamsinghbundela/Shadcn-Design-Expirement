@@ -3,16 +3,14 @@ import {
   SidebarContent,
   SidebarFooter,
   SidebarGroup,
-  SidebarGroupAction,
-  SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   //   useSidebar,
 } from "@/components/ui/sidebar"
-import { ChevronDown, Plus, User2 } from "lucide-react"
+
+import { NavUser } from "@/components/nav-user"
 
 export function AppSidebar() {
   //   const {
@@ -25,31 +23,36 @@ export function AppSidebar() {
   //     toggleSidebar,
   //   } = useSidebar()
 
+  const data = {
+    user: {
+      name: "shadcn",
+      email: "m@example.com",
+      avatar: "/avatars/shadcn.jpg",
+    },
+  }
+
   return (
     <Sidebar>
       <SidebarHeader>
         <SidebarMenu>
-          <SidebarMenuItem></SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarHeader>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
-          <SidebarGroupAction>
-            <Plus /> <span className="sr-only">Add Project</span>
-          </SidebarGroupAction>
-          <SidebarGroupContent></SidebarGroupContent>
-        </SidebarGroup>
-        <SidebarGroup />
-      </SidebarContent>
-      <SidebarFooter>
-        <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton>
-              <User2 /> Shubham
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:p-1.5!"
+            >
+              <a href="#">
+                <span className="text-base font-semibold">Payments</span>
+              </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarGroup />
+        <SidebarGroup />
+      </SidebarContent>
+      <SidebarFooter>
+        <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
   )
