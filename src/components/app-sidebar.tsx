@@ -2,15 +2,15 @@ import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
-  SidebarGroup,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  //   useSidebar,
 } from "@/components/ui/sidebar"
 
 import { NavUser } from "@/components/nav-user"
+import { IconChartBar, IconDashboard } from "@tabler/icons-react"
+import { NavMain } from "@/components/nav-main"
 
 export function AppSidebar() {
   //   const {
@@ -29,6 +29,18 @@ export function AppSidebar() {
       email: "m@example.com",
       avatar: "/avatars/shadcn.jpg",
     },
+    navMain: [
+      {
+        title: "Dashboard",
+        url: "#",
+        icon: IconDashboard,
+      },
+      {
+        title: "Check Balance",
+        url: "#",
+        icon: IconChartBar,
+      },
+    ],
   }
 
   return (
@@ -48,8 +60,7 @@ export function AppSidebar() {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarGroup />
-        <SidebarGroup />
+        <NavMain items={data.navMain} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
