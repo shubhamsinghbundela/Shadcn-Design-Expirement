@@ -13,16 +13,6 @@ import { IconChartBar, IconDashboard } from "@tabler/icons-react"
 import { NavMain } from "@/components/nav-main"
 
 export function AppSidebar() {
-  //   const {
-  //     state,
-  //     open,
-  //     setOpen,
-  //     openMobile,
-  //     setOpenMobile,
-  //     isMobile,
-  //     toggleSidebar,
-  //   } = useSidebar()
-
   const data = {
     user: {
       name: "shadcn",
